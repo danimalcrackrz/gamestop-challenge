@@ -9,3 +9,8 @@ export const searchState = atom({
   key: "searchState",
   default: "",
 });
+
+export const cartState = atom({
+  key: "cartState",
+  default: [] as any[],
+});
