@@ -15,7 +15,7 @@ export default function ModalScreen() {
     typeof variations === "string" ? variations.split(",") : [];
 
   const handleAddToCart = () => {
-    setCart((prev) => [...prev, { id, name }]);
+    setCart((prev) => [...prev, { id: id + new Date().toString(), name }]);
     router.replace("/two");
   };
 
@@ -33,7 +33,6 @@ export default function ModalScreen() {
           />
         )}
       </View>
-
       <View style={{ flexDirection: "row", gap: 10 }}>
         {variationsArray.map((variation) => (
           <Pressable key={variation} style={styles.variations}>

@@ -8,8 +8,10 @@ const ProductTile = (items) => {
   const [cart, setCart] = useRecoilState(cartState);
 
   const handleAddToCart = () => {
-    setCart((prev) => [...prev, { ...items }]);
-    router.replace("/two");
+    setCart((prev) => [
+      ...prev,
+      { ...items, id: items.id + new Date().toString() },
+    ]);
   };
 
   return (
