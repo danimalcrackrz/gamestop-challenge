@@ -14,7 +14,7 @@ const CartList = () => {
       }}
       data={cart}
       renderItem={({ item }) => <CartTile {...item} />}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id + new Date().toString()}
       ListEmptyComponent={
         <Text style={{ color: "white" }}>No products found</Text>
       }

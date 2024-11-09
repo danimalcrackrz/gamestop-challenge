@@ -8,8 +8,8 @@ const CartTile = (items) => {
   const [cart, setCart] = useRecoilState(cartState);
 
   const handleRemoveFromCart = () => {
-    setCart((prev) => prev.filter((item) => item.id !== items.id));
-    router.replace("/");
+    const updatedCart = cart.filter((item) => item.id !== items.id);
+    setCart(updatedCart);
   };
 
   return (
