@@ -6,9 +6,11 @@ const SearchBar = () => {
   const [search, setSearch] = useRecoilState(searchState);
   const [products, setProducts] = useRecoilState(productState);
 
-  const handleSearch = () => {
+  const handleSearch = (text) => {
+    setSearch(text);
+    //TODO: theres a bug here daniel fix it or else and go to sleep
     const filteredProducts = products.filter((product) =>
-      product.name.includes(search)
+      product.name.includes(text)
     );
 
     console.log("Filtered products:", filteredProducts);
@@ -21,8 +23,7 @@ const SearchBar = () => {
         placeholder='Search...'
         placeholderTextColor={"black"}
         value={search}
-        onChangeText={(text) => setSearch(text)}
-        onSubmitEditing={handleSearch}
+        onChangeText={handleSearch}
         autoFocus
       />
     </View>
