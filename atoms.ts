@@ -1,13 +1,14 @@
 import { atom } from "recoil";
+import { ProductType } from "./constants/Types";
 
 export const productState = atom({
   key: "productState",
-  default: [] as any[],
+  default: [] as ProductType[],
 });
 
 export const searchState = atom({
   key: "searchState",
-  default: "",
+  default: "" as string,
 });
 
 export const cartState = atom({

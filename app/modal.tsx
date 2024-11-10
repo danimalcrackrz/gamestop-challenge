@@ -21,7 +21,13 @@ export default function ModalScreen() {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.type}>{type}</Text>
       </View>

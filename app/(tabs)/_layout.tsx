@@ -34,7 +34,9 @@ export default function TabLayout() {
         name='index'
         options={{
           title: "Products",
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='gamepad' color={color} />
+          ),
           headerRight: () => (
             <Link href='/two'>
               <Pressable
@@ -62,7 +64,9 @@ export default function TabLayout() {
         name='two'
         options={{
           title: "Shopping Cart",
-          tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='shopping-cart' color={color} />
+          ),
           headerRight: () => (
             <Link href='/'>
               <Pressable
