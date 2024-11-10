@@ -8,9 +8,10 @@ import {
   Pressable,
 } from "react-native";
 import { useState } from "react";
+import { FormType } from "@/constants/Types";
 
 const checkout = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormType>({
     name: "",
     phone: "",
     address: "",
@@ -33,6 +34,7 @@ const checkout = () => {
           style={{ padding: 5, backgroundColor: "white" }}
           placeholderTextColor={"black"}
           placeholder='Phone'
+          keyboardType='phone-pad'
           textContentType='telephoneNumber'
           value={form.phone}
           onChangeText={(text) => setForm({ ...form, phone: text })}
@@ -57,6 +59,7 @@ const checkout = () => {
           placeholderTextColor={"black"}
           placeholder='Credit Card'
           value={form.creditCard}
+          keyboardType='numeric'
           textContentType='creditCardNumber'
           secureTextEntry
           onChangeText={(text) =>

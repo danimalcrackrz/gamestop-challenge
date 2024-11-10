@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
-import { Link, router } from "expo-router";
+import { Link } from "expo-router";
 import { PLACEHOLDER_IMAGE_URL } from "@/constants/Constants";
 import { useRecoilState } from "recoil";
 import { cartState } from "@/atoms";
