@@ -6,16 +6,21 @@ import { useLocalSearchParams } from "expo-router";
 import { useRecoilState } from "recoil";
 import { cartState } from "@/atoms";
 import { router } from "expo-router";
+import { useState } from "react";
 
 export default function ModalScreen() {
   const [cart, setCart] = useRecoilState(cartState);
+  const [selectedVariation, setSelectedVariation] = useState("");
   const { name, image, type, variations, details, id } = useLocalSearchParams();
 
   const variationsArray =
     typeof variations === "string" ? variations.split(",") : [];
 
   const handleAddToCart = () => {
-    setCart((prev) => [...prev, { id: id + new Date().toString(), name }]);
+    setCart((prev) => [
+      ...prev,
+      { id: id + new Date().toString(), name, variations: selectedVariation },
+    ]);
     router.replace("/two");
   };
 
@@ -41,7 +46,15 @@ export default function ModalScreen() {
       </View>
       <View style={{ flexDirection: "row", gap: 10 }}>
         {variationsArray.map((variation) => (
-          <Pressable key={variation} style={styles.variations}>
+          <Pressable
+            onPress={() => setSelectedVariation(variation)}
+            key={variation}
+            style={
+              selectedVariation === variation
+                ? styles.variationsSelected
+                : styles.variations
+            }
+          >
             <Text>{variation}</Text>
           </Pressable>
         ))}
@@ -88,6 +101,11 @@ const styles = StyleSheet.create({
   },
   variations: {
     backgroundColor: "red",
+    padding: 10,
+    borderRadius: 5,
+  },
+  variationsSelected: {
+    backgroundColor: "gold",
     padding: 10,
     borderRadius: 5,
   },

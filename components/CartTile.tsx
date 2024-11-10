@@ -19,7 +19,12 @@ const CartTile = (items) => {
           source={{ uri: PLACEHOLDER_IMAGE_URL }}
           style={{ width: 100, height: 100 }}
         />
-        <Text style={{ marginLeft: 5, fontSize: 20 }}>{items.name}</Text>
+        <View>
+          <Text style={{ marginLeft: 5, fontSize: 20 }}>{items.name}</Text>
+          <Text style={{ marginLeft: 5, fontSize: 20, color: "gold" }}>
+            {items.variations}
+          </Text>
+        </View>
         <Pressable style={styles.button}>
           <Text
             style={{ fontSize: 20, color: "white" }}
